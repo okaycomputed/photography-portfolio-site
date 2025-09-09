@@ -123,7 +123,7 @@ function Contact() {
         if(Object.keys(newErrors).length === 0) {
             setStatus("loading");
 
-            const response = await fetch("http://localhost:8000/sendmail.php", {
+            const response = await fetch("/api/sendmail", {
                 method: "POST",
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify(formData),
