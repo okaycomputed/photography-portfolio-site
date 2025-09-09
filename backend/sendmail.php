@@ -7,7 +7,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require __DIR__ . '/vendor/autoload.php';
-$config = require __DIR__ . '/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
@@ -29,21 +28,21 @@ $mail = new PHPMailer(true);
 
 try {
     $mail->isSMTP();
-    $mail->Host = $config["SMTP_HOST"];
-    $mail->Port = $config["PORT"];
+    $mail->Host = getenv("SMTP_HOST");
+    $mail->Port = getenv("PORT");
     $mail->SMTPSecure = "tls";
     $mail->SMTPAuth = true;
-    $mail->Username = $config["SMTP_USERNAME"];
-    $mail->Password = $config["SMTP_PASSWORD"];
+    $mail->Username = getenv("SMTP_USERNAME");;
+    $mail->Password = getenv("SMTP_PASSWORD");
 
     // Sends email via smtp
-    $mail->setFrom($config["SMTP_USERNAME"], "Portfolio Website");
+    $mail->setFrom(getenv("SMTP_USERNAME"), "Portfolio Website");
 
     // Allows a reply to the person who sent the enquiry form
     $mail->addReplyTo($email, $firstName . " " . $lastName);
 
     // Email is sent to the destination address
-    $mail->addAddress($config["EMAIL"]);
+    $mail->addAddress(getenv("EMAIL"));
 
     $mail->isHTML(true);
     $mail->Subject = "Inquiry From Portfolio Website";
