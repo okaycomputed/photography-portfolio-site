@@ -1,0 +1,134 @@
+.background-container {
+    background-image: url("/gallery/bgimg.webp");
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    
+}
+
+.background-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.background-container > * {
+    position: relative;
+    z-index: 2;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 30%;
+    left: 100px;
+    color: white;
+    font-family: Roboto, sans-serif; 
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.top-text {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px; 
+}
+
+.top-line {
+    position: static;
+    width: 81px;
+    border: 1px solid #fff;   
+}
+
+.top-heading {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22.2px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+}
+
+.home-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 88px;
+    letter-spacing: -0.02em;
+    text-align: left;
+
+    max-width: 650px;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.continue {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+
+    margin-left: auto;
+
+    color: white;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-align: left;
+    text-transform: uppercase;
+    gap: 6px; 
+    text-decoration: none;
+}
+
+.continue::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: width 0.4s ease;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+}
+
+.arrow-line {
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: white;
+}
+
+.arrow-head {
+    display: inline-block;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    padding: 4px;
+    transform: rotate(-45deg);
+    margin-left: -5px;
+
+}
+
+.continue:hover::after {
+    width: 100%;
+}

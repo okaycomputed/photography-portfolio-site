@@ -1,0 +1,164 @@
+.contact-container {
+    display: flex;
+    background-color: #00090b;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.contact-image {
+    flex: 1;
+}
+
+.contact-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+}
+
+.contact-section {
+    flex: 1;
+    margin: 0 60px;
+    margin-top: 130px;
+    padding: 30px;
+    max-width: 525px;
+
+    color: white;
+    font-family: Roboto, sans-serif;
+}
+
+.contact-header {
+    display: flex;
+    align-items: baseline;
+    gap: 40px;
+    margin-bottom: 35px;
+}
+
+.contact-header h2 {
+    font-size: 35px;
+    font-weight: 550;
+    line-height: 22.2px;
+    letter-spacing: 0.02em;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 30px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #848484;
+}
+
+.social-links a svg {
+    position: relative;
+    top: 4px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 50px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 13px;
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.04em;
+
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #848484;
+    padding: 8px 0;
+
+    font-family: Roboto, sans-serif;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    outline: none;
+    resize: none;
+    overflow-y: scroll;
+
+    line-height: 1.5;
+    max-height: 80px;
+
+    margin-bottom: 30px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group input:hover,
+.input-group textarea:hover {
+    border-bottom-color: white;
+    transition: border-bottom-color 0.5s ease;
+}
+
+.input-group input[aria-invalid=true],
+.input-group textarea[aria-invalid=true] {
+    border-bottom-color: rgb(162, 9, 9);
+    background-color: rgba(162, 9, 9, 0.2);
+}
+
+.half-width {
+    width: 50%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.send-msg-btn {
+    align-self: flex-end;
+    background: white;
+    color: #00090b;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 38px;
+
+    font-weight: 500;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.send-msg-btn:hover {
+    background: rgba(216, 216, 216);
+}
+
+.sent-state {
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sent-state span {
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    margin-top: 0;
+}

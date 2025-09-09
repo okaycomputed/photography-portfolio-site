@@ -1,0 +1,16 @@
+.errorMsg {
+    display: flex;
+    align-items: middle;
+    gap: 4px;
+}
+
+.errorMsg svg {
+    margin-top: -25px;
+}
+
+.errorMsg p{
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 11px;
+    margin-top: -25px;
+}
