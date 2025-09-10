@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa';
 import { MdCheckCircleOutline, MdOutlineReportGmailerrorred } from 'react-icons/md';
 import { ring } from 'ldrs';
+import emailjs from "@emailjs/browser";
 import ErrorMessage from '../components/ErrorMessage';
 import '../css/Contact.css';
 
@@ -107,6 +108,18 @@ function Contact() {
         return newErrors;
     }
 
+    const sanitizeInput = (inputValue) => {
+        var map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+  
+        return inputValue.replace(/[&<>"']/g, (m) => map[m]).trim();
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -121,16 +134,27 @@ function Contact() {
 
         // Checks if the 'errors' object is empty
         if(Object.keys(newErrors).length === 0) {
+            // Set default icon state to 'loading'
             setStatus("loading");
+            
+            // Import environment varibles
+            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+            const userId = import.meta.env.VITE_EMAILJS_USER_ID;
 
-            const response = await fetch("/api/sendmail", {
-                method: "POST",
-                headers: {"Content-Type":"application/json"},
-                body: JSON.stringify(formData),
-            });
+            try {
+                // Compile data from file and send it via emailJS
+                await emailjs.send(serviceId, templateId, {
+                    name: `${sanitizeInput(formData.firstName)} ${sanitizeInput(formData.lastName)}`,
+                    email: sanitizeInput(formData.email),
+                    message: sanitizeInput(formData.message),
+                }, userId);
 
-            const data = await response.json();
-            setStatus(data.status);
+                setStatus("success");
+            } 
+            catch (err) {
+                setStatus("error");
+            }
         }
     }
 
