@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { translations } from "../translations";
 import { useLanguageContext } from "../contexts/LanguageContext";
 import { RxCross2 } from "react-icons/rx";

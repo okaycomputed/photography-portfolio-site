@@ -20,7 +20,7 @@
 .contact-section {
     flex: 1;
     margin: 0 60px;
-    margin-top: 130px;
+    margin-top: 18vh;
     padding: 30px;
     max-width: 525px;
 
@@ -92,6 +92,10 @@
 
 .input-group input,
 .input-group textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
     background: transparent;
     border: none;
     border-bottom: 1px solid #848484;
@@ -176,6 +180,9 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        width: 100vw;
+        min-height: 100svh;
+        overflow: hidden;
     }
 
     .contact-container::before {
@@ -193,9 +200,7 @@
 
     .contact-section {
         margin: 0px 15px;
-        margin-top: 80px;
         align-self: center;
-        max-width: 768px;
     }
 
     .contact-form {
@@ -203,10 +208,12 @@
     }
 
     .contact-header {
+        margin-bottom: 20px;
         justify-content: space-between;
     }
 
     .contact-header h2 {
+        white-space: nowrap;
         font-size: 28px;
     }
 
