@@ -96,6 +96,10 @@
     -moz-appearance: none;
     appearance: none;
 
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+
     background: transparent;
     border: none;
     border-bottom: 1px solid #848484;
@@ -181,7 +185,8 @@
         background-repeat: no-repeat;
         background-size: cover;
         width: 100vw;
-        min-height: 100svh;
+        height: 100vh;
+        height: 100dvh; 
         overflow: hidden;
     }
 
