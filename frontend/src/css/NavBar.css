@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 999;
 
     padding: 20px;
     width: 100%;
@@ -16,12 +16,13 @@
 
 .nav-title {
     font-family: Roboto, sans-serif;
-    font-size: 20px;
-    font-weight: 450;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22.2px;
+    letter-spacing: 0.04em;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-
 }
 
 .navbar-right {
@@ -47,9 +48,11 @@
     color: white;
     font-family: Roboto, sans-serif;
     font-size: 18px;
-    font-weight: 450;
-    line-height: 1;
+    font-weight: 500;
     text-decoration: none; 
+    line-height: 22.2px;
+    letter-spacing: 0.04em;
+
     cursor: pointer;
     transition: color 0.2s ease;
     text-transform: uppercase;
@@ -60,7 +63,7 @@
     transform: translateX(-50%);
     content: "";
     position: absolute;
-    bottom: -4px;
+    bottom: -1px;
     width: 0;
     height: 2px;
     background-color: white;
@@ -81,6 +84,9 @@
     font-size: 18px;
     font-family: Roboto, sans-serif;
     font-weight: 500;
+    line-height: 22.2px;
+    letter-spacing: 0.04em;
+
     background-color: #000;
     color: white;
     border-radius: 20px;
@@ -102,4 +108,39 @@
 
 .language-text {
     display: inline-block;
+}
+
+.menuIcon {
+    display: none;
+}
+
+/* Styling for mobile website */
+@media (max-width: 768px) {
+    /* Hide original navbar */
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 14px;
+    }
+
+    .nav-title {
+        display: none;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: flex;
+        background-color: #000;
+        color: white;
+        padding: 6px 8px;
+        border-radius: 15px;
+    }
+    
+    .menu-btn:hover {
+        background-color:#222;
+        transform: translateY(-1px);
+    }
 }
