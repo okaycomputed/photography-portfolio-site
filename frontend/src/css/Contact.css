@@ -3,6 +3,7 @@
     background-color: #00090b;
     overflow: hidden;
     height: 100vh;
+    width: 100vw;
 }
 
 .contact-image {
@@ -29,9 +30,10 @@
 
 .contact-header {
     display: flex;
-    align-items: baseline;
-    gap: 40px;
+    align-items: center;
     margin-bottom: 35px;
+    gap: 40px;
+    width: 100%;
 }
 
 .contact-header h2 {
@@ -161,4 +163,81 @@
     font-family: Roboto, sans-serif;
     font-size: 16px;
     margin-top: 0;
+}
+
+/* Styling for mobile website */
+@media (max-width: 768px) {
+    .contact-image {
+        display: none;
+    }
+
+    .contact-container {
+        background-image: url("/gallery/contactImg.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .contact-container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 1;
+    }
+
+    .contact-container > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    .contact-section {
+        margin: 0px 15px;
+        margin-top: 80px;
+        align-self: center;
+        max-width: 768px;
+    }
+
+    .contact-form {
+        gap: 15px;
+    }
+
+    .contact-header {
+        justify-content: space-between;
+    }
+
+    .contact-header h2 {
+        font-size: 28px;
+    }
+
+    .social-links a {
+        font-size: 26px;
+    }
+
+    .half-width {
+        width: 100%;
+    }
+
+    .row {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .input-group label {
+        font-size: 12px;
+    }
+
+    .input-group input, .input-group textarea {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    .send-msg-btn {
+        padding: 14px 22px;
+        font-size: 15px;
+    }
+    
+    .sent-state span {
+        font-size: 14px;
+    }
 }
